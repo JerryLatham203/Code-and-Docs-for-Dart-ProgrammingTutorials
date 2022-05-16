@@ -1,0 +1,72 @@
+import 'dart:io';
+/* The Dart programming language requires a main method to compile code. In some IDEs
+variables placed outside the main body will not execute to the console and
+ should be placed inside a class body or main method. Using Visual Studio Code
+ allows the capability of accessing a variable outside the main method.*/
+
+//String subject = "Variables";
+/*even though a variable has been declared a certain value, it can be changed to a 
+new value within the same data type. This can only be performed in the main method */
+//subject = "CS-Variables in Dart"; //<- raises an error..
+//a variable that is declared with final and its data type cannot be changed..
+final String Permanent = "Cannot Change or Update this variable";
+//There are other data types to declare:
+int number = 52;
+bool Option1 = true;
+bool Option2 = false;
+double deci_Num = 107.10;
+//remember to save frequently when using Visual Studio Code
+
+//Dart does not currently support character data types
+//char Letter = 'M'; // <-raises an error
+//The character data type will be demonstrated in upcoming tutorials.
+
+void main() {
+  String subject = "CS";
+  subject = "CS: variables in Dart";
+  print(subject);
+  //The print() method prints the value and new line to the console.
+  number = 102;
+  print(number);
+  //A variable can be changed as long as it is not declared as a constant(final)
+  //Permanent = "something else"; //<-raises an error
+  //outputting to the same line in the console is possible using an import
+  //Then use the statement - stdout.write(value);
+  stdout.write("---");
+  stdout.write(Option1);
+  stdout.write("---");
+  stdout.write(Option2);
+
+  //If some prompts are not working in Debug, try executing in terminal of IDE
+  /* As mentioned earlier, variables can be placed in separate body called a class */
+  /* To obtain access to a class outside the main method, declare an instance of that class*/
+  //To do so, we use the keyword "var"
+  //"var" can be used with regular variables as well:
+  var SampleVariable = "Declared using var";
+  stdout.write("---");
+  stdout.write(SampleVariable);
+  print("\n"); //starts a new line
+  //declaring variable for class:
+  var object1 = Separate();
+  var object2 = Separate();
+  //each declaration above is its own instance of the class Separate
+
+  print(object1.access);
+  /* In reference of String variables/values, the (+=) operator serves as one option of appending 
+  a string value to the already declared String variable; (+) for simple String Concatenation*/
+  object2.access += ", and is eligible to call from main method\n";
+  print(object2.access);
+
+  //Strings can be declared in Single or Double Quotations
+  String funding = '\$${number + deci_Num}';
+  print("Here is " + funding); //example of String Concatenation
+
+  /* We can use the ${} syntax to easily format a non-string character into a String sequence.
+  To escape the formatting, use the (\) character. */
+  //end of main method
+}
+
+class Separate {
+  String access = "gaining access to Separate Class";
+  //end of class Separate
+}
