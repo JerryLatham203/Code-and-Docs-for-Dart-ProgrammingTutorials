@@ -1,0 +1,119 @@
+import 'dart:io';
+
+/* example of method that will be used to add white space in the console output. 
+More about Methods will be shown in the following videos */
+
+void Enter(int space) {
+  int Lines = 0;
+  while (Lines < space) {
+    print("\n");
+    Lines += 1;
+    //increments each loop call by 1
+    //end of while loop
+    //loops will be discussed later as well
+  }
+  //end of method Enter
+}
+
+void main() {
+  //String variable declarations:
+  String Country = "Alabama";
+  String Sunny = "Florida";
+  String Valley_Mountain = "California";
+  String Flat = "Texas";
+  String Plants_noPlants = 'New York';
+  String Executive = 'Virginia';
+
+  /* A String can be indexed, meaning its individual string characters can be identified with a 
+  number place. The computer recognizes the starting index as 0. */
+  String shortName = Country[3] + Country[4] + Country[5] + Country[6];
+  print(shortName.toUpperCase());
+  //The toUpperCase() method returns any String in ALL Caps
+  //Similarly, the toLowerCase() returns any String in all lowercase.
+  print("FORCED LOWERCASE".toLowerCase());
+
+  String CheckStatus = "";
+  print(CheckStatus.isEmpty);
+  print(Flat.isNotEmpty);
+  //The above return statement type is of type boolean
+  /* The .length property returns the total count of characters in a given string */
+  print(Country.length);
+
+  String ShowTimeLocations = Country + " " + Flat + " " + Executive;
+
+  double Price1 = 57.32;
+  double Price2 = 39.55;
+  double Price3 = 72.30;
+
+  Price2 += 25;
+  Price1 *= 2; //multiplication
+  Price3 -= 15.25;
+  String ShowPrices = "\$${Price1}, \$${Price2}, \$${Price3}";
+  /* The variables that are formatted into the String sequence are only manipuable before 
+  the format. */
+  Price2 += 500722;
+  Price2 *= 10;
+  //neither of the above variables has an effect.
+  stdout.write("Locations: ${ShowTimeLocations}\nPrices: ${ShowPrices}\n");
+
+  int Persons = 784;
+  var Stat_Bama = "${Country} has ${Persons} attendees";
+  //var Mix = "${Flat} has " + 591 + " attendees"; //<-- raises an error
+  //cannot concatenate strings with integers without formatting
+  print(Stat_Bama);
+
+  String example1 = "Units";
+  print("ASCII for Units: ${example1.codeUnits}");
+  Enter(1);
+  /* The codeUnits property analyzes a String Character and relates it to the ASCII Chart which is the standard
+  legend for Electronic Communication. Its code is used to represent text in Computers */
+  //codeUnits property returns the ASCII Chart values in a list or also known as an array
+  //these lists can be declared with the "List" or "var" keyword
+  //lists can be declared as final or left mutable
+  var Emptylist = [3];
+  List SecondaryEmptylist = []; //pre-initialized to 0
+  var TryAnother = []; //pre-initialized to 0
+  var AddTo = [7];
+  List ViewValues = ["Hello", "Dart", "Programming", 2.0];
+
+  AddTo[0] = 25;
+  print(AddTo);
+  /* more on lists and arrays will be shown in later videos. For now, a list can be declared and 
+  intialized as shown above. Until an element is added to a list, it remains empty*/
+
+  print(Emptylist);
+  //The below variable declaration raise an error:
+  //SecondaryEmptylist[0] = "Kalamazoo";
+  //SecondaryEmptylist[1] = true;
+  //SecondaryEmptylist[2] = 105;
+
+  print(SecondaryEmptylist);
+  print(TryAnother);
+
+  Enter(1);
+  print("${SecondaryEmptylist} <-- ${SecondaryEmptylist.isEmpty}");
+  print("${Emptylist} <-- ${Emptylist.isNotEmpty}");
+
+  Enter(2);
+  var InfoPanel = [Plants_noPlants, Valley_Mountain, Sunny, Country];
+
+  /* The below declaration is an example of a multi-dimensional array which can hold a set of 2 or more arrays/list.
+  More of this topic will be reviewed in later tutorials. */
+  List SectionalData = [
+    //start of list
+    "\nASCII for New York: ${Plants_noPlants.codeUnits}",
+    "\nASCII for California: ${Valley_Mountain.codeUnits}"
+        //end of list
+        "\n"
+  ];
+  print(InfoPanel);
+  print(SectionalData);
+
+  Enter(3);
+  print(Emptylist);
+  print(AddTo);
+  print(ViewValues);
+  print(SectionalData[0]);
+  print(SectionalData[1]);
+  //end of main method
+}
