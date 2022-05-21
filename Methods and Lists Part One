@@ -1,0 +1,115 @@
+import 'dart:io';
+
+//method for white-space in console
+void enter(int space) {
+  int Lines = 0;
+  while (Lines < space) {
+    print("\n");
+    Lines = Lines + 1;
+    //end of while loop
+  }
+  //end of method enter
+}
+
+void EmptyFunction() {
+  //this method returns nothing
+}
+//a return method returns a single data type
+//its declaration should have a data type instead of void
+int GiveNumber() {
+  int PassNumber = 72;
+  return PassNumber;
+}
+
+void ViewStrings() {
+  String View1 = "Santa Fe New Mexico";
+  String View2 = "Oxford Mississippi";
+  String View3 = "Weston West Virginia";
+  String View4 = "Augusta Maine";
+  /* each individual declaration above can be called within the method or remain
+  void */
+  print(View2);
+  print(View4);
+}
+
+void main() {
+  EmptyFunction();
+  GiveNumber(); //has no output to console
+  //a return method has to be called through a print method
+  print(GiveNumber());
+  enter(2);
+  ViewStrings();
+  LowerMethod();
+  enter(1);
+
+  ExamineStrings();
+  Mathematical();
+  enter(1);
+  UserMathematical(25);
+  UserMathematical(10);
+
+  enter(1);
+  print(UserWords("Kalamazoo".toUpperCase()));
+  //end of main method
+}
+
+//a function can be defined above or below the main method
+void LowerMethod() {
+  String State1 = 'AL';
+  String State2 = 'OH';
+  bool Compare = State1.codeUnits[0] < State2.codeUnits[1];
+  List ViewState1 = State1.codeUnits;
+  List ViewState2 = State2.codeUnits;
+
+  print(Compare);
+  stdout.write("\n" * 2);
+  /* A string can be multiplied and added to increase or concatenate its characters*/
+  print(ViewState1);
+  print(ViewState2);
+}
+
+void ExamineStrings() {
+  String one = "N";
+  String Two = "z" * 3;
+  String Three = "Hello World!" * 2;
+  List HoldStrings = [one, Two, Three];
+  print(HoldStrings);
+  //end of method ExamineStrings
+}
+
+List Numbers = [32, 15, 76, 108, 9];
+var decimals = [13.07, 53.10, 215.88];
+
+/* The above array declarations can be called in the main method and through other declared
+functions */
+
+void Mathematical() {
+  //one declared method can be called within another
+  enter(1);
+  double equation1 = Numbers[1] + decimals[0];
+  double equation2 = Numbers[2] + decimals[1] + 1.75;
+  int equation3 = Numbers[0] + 10 + 5;
+
+  stdout.writeln(equation1);
+  stdout.writeln(equation2);
+  stdout.writeln(equation3);
+  //end of method Mathematical
+}
+
+/* Methods cam also pass values in its parameters called, arguments */
+//all arguments need to have a declared data type
+void UserMathematical(int userNum) {
+  print(userNum * 5);
+  int key = 25;
+  //example of if statement:
+  if (key == userNum) {
+    print("correct");
+  } else {
+    print("incorrect");
+  }
+  //end of method UserMathematical
+}
+
+String UserWords(String argument) {
+  return "password: " + argument;
+}
