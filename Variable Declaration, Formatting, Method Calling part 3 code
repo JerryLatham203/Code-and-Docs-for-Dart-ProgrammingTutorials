@@ -1,0 +1,62 @@
+import 'dart:io';
+
+void main() {
+  String Letter1 = "a";
+  String Letter2 = "mo";
+  print(Letter1.codeUnits);
+  print(Letter2.codeUnits);
+
+  enter(1);
+
+  String IDE1 = "Repl.it";
+  String IDE2 = """Visual Studio Code""";
+  List HoldUnits = [
+    "(..start of List..)${IDE1.codeUnits}--${IDE2.codeUnits}(..end of List..)"
+  ]; //Multi-dimensional array
+  print(HoldUnits);
+  /* Each individual variable starts a new list in the list HoldUnits. Each String Character 
+  has a place in the ASCII code chart and its output from codeUnits is displayed in a List format*/
+  enter(2);
+
+  int CompareString1 = IDE2.codeUnits[4];
+  int CompareString2 = Letter1.codeUnits[0];
+
+  print(CompareString1);
+  print(CompareString2);
+
+  stdout.writeln(CompareString1 == CompareString2);
+  /* stdout.writeln(value) prints the value and returns a new line to the console*/
+  String FirstType = 'Single Quotations';
+  String SecondType = "Double Quotations";
+  String ThirdType = """Triple Quotations""";
+  stdout.write(
+      FirstType + " " + SecondType + " " + ThirdType.toUpperCase() + "\n");
+
+  enter(1);
+
+  var Connect1 = IDE1 + " is encased in " + SecondType;
+  var Connect2 = IDE2 + " is encased in " + ThirdType;
+  print(Connect1);
+  print(Connect2);
+
+  bool Statement1 = Letter1 != Letter2;
+  bool Statement2 = Letter1.codeUnits[0] < Letter2.codeUnits[0];
+
+  enter(1);
+
+  stdout.write("${Statement1}\n");
+  stdout.writeln(Statement2);
+
+  //end of main method
+}
+
+//creating method to add white-space in console
+void enter(int space) {
+  int Lines = 0;
+  while (Lines < space) {
+    stdout.write("\n");
+    Lines++;
+    //end of while loop
+  }
+  //end of method enter
+}
