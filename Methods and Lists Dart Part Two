@@ -1,1 +1,91 @@
+import 'dart:io';
+
+/*  example of using short-hand syntax to create a return method */
+String Greeting(String name) =>
+    "Hello " + name + ', here is some funding for a new vehicle!';
+//the (=>) serves as the "print" syntax to get output to the console
+
+//more declarations:
+double Pay(double floating_num) => floating_num;
+double IgnoreArg_ExtraMoney(int NullArg1, int NullArg2) => 700;
+/*for the above short-hand syntax method, the return will always be 700 because the 
+  arguments are not being utilized in the output */
+double Money_x2 = Pay(200) + IgnoreArg_ExtraMoney(7532, -450);
+
+void main() {
+  //main method declarations:
+  LoanOption.addAll(
+      OnlineLoanApprovals); //This must be performed in the main method body
+  Vehicle_Makes.insert(9, "Lexus");
+  //The make Lexus, will be added to index number 9 of the array Vehicle_Makes
+  double funding_1, funding_2;
+  funding_1 = IgnoreArg_ExtraMoney(-789, 454);
+  funding_2 = Money_x2;
+
+  funding_1 += 750;
+  funding_2 *= 10; //incrementing value of funding_2 with multiplication
+  funding_2 += 500;
+
+  double Total = funding_1 + funding_2 + Pay(7534.58);
+  Total += LoanOption[2];
+  Total += LoanOption[9];
+  //output:
+  View_MakeOptions();
+  enter(1);
+  ViewLoans();
+  enter(2);
+  print("\$${Total} available to use for purchase");
+  //the \$ escapes out of String formatting.
+  //end of main method
+}
+
+//method for creating white-space in console
+void enter(int space) {
+  int Lines = 0;
+  while (Lines < space) {
+    stdout.write('\n');
+    //incrementing the output of the '\n'(new line method) by one count
+    Lines++;
+    //end of while loop
+  }
+  //end of method enter
+}
+
+var Vehicle_Makes = [
+  "Toyota",
+  "Mitsubishi",
+  "Chevrolet",
+  "Acura",
+  "Ford",
+  "Nissan",
+  "Honda",
+  "Chrysler",
+  "Dodge",
+  "Oldsmobile",
+  "Mercedes",
+  "BMW"
+];
+
+List LoanOption = [45872, 5000, 10500, 790.50, 4300];
+var OnlineLoanApprovals = [8300, 250.75, 470.22, 350, 450, 555];
+
+//The .addAll method concatenates the elements of another array listed in the argument:
+//LoanOption.addAll(OnlineLoanApprovals); //This must be performed in the main method body
+//more method creations:
+void View_MakeOptions() {
+  //example of accessing an array using for loop:
+  for (int x = 0; x < Vehicle_Makes.length; x++) {
+    stdout.writeln(Vehicle_Makes[x]);
+    //end of for loop
+  }
+  //end of method View_MakeOptions
+}
+
+void ViewLoans() {
+  print('extra funding'.toUpperCase());
+  for (int x = 0; x < LoanOption.length; x++) {
+    stdout.writeln("\$${LoanOption[x]}");
+  }
+  //end of method ViewLoans
+}
 
