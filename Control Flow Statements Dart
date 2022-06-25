@@ -1,0 +1,96 @@
+import 'dart:io';
+
+//method for white-space in output
+void enter(int space) {
+  int Lines = 0;
+  while (Lines <= space) {
+    stdout.write('\n');
+    Lines++;
+    //end of while-loop
+  }
+  //end of method enter
+}
+
+void main() {
+  stdout.write('Comic Books!\n\n'.toUpperCase());
+  var Comic_genre = ['Manga', 'Science-Fiction', 'Action', 'Mystery'];
+  Comic_genre.add('Adventure');
+  Comic_genre.add('Children\'s');
+  /* example of utilizing a for-loop within an array to quickly add elements to that array */
+  var Comic_releaseYear = [for (var i = 1989; i <= 2022; i++) i];
+
+  var num_genres = Comic_genre.length;
+
+  bool ViewTypes = false;
+  ViewTypes = true;
+  if (ViewTypes == true) {
+    print('Available Types:${num_genres}');
+    //end of if-statement
+  } else {
+    stdout.writeln('skip review of availability..');
+    for (int x = 0; x < Comic_genre.length; x++) {
+      print(Comic_genre[x]);
+      //end of for-loop
+    }
+    //end of else-statement
+  }
+
+  //List or aka Array declarations:
+  var comic_titles = [
+    "The Amazing Spider-Man", "The Avengers", "Carnage", "Miles Morales",
+    "Green Lantern",
+    "Justice Leauge", "Harleen", "Batman", "Teen Titans", "Outer Darkness",
+    "Case Closed", "Noir",
+    "Archie", "Jughead", "Riverdale High", "Garfield"
+    //end of List comic_titles
+  ];
+  //Comic_genre.add('Children\'s');
+  var comic_volumes = [for (var i = 1; i <= 250; i++) i];
+  print('available volumes:${comic_volumes.length}');
+
+  enter(1);
+
+  viewUnits(Comic_genre[0]);
+  viewUnits(Comic_genre[1]);
+  viewUnits(comic_titles[5]);
+  viewUnits(comic_titles[3]);
+
+  enter(2);
+
+  viewComicTitles(false, comic_titles);
+  ViewComicVolumes(false, comic_volumes);
+  //end of main method
+}
+
+//more method declarations:
+
+void viewUnits(var Value) {
+  stdout.write('ASCII ref for ${Value}');
+  print(Value.codeUnits);
+  //end of method viewUnits
+}
+
+void viewComicTitles(bool response, var Display) {
+  if (response == true) {
+    for (int x = 0; x < Display.length; x++) {
+      stdout.write('${Display[x]} \n');
+    }
+    //end of if statement
+  }
+  //end of method viewComicTitles
+}
+
+void ViewComicVolumes(bool response, var Display) {
+  //an argument parameter can hold any number of param. values
+  if (response == true) {
+    for (int y = 0; y < Display.length; y++) {
+      stdout.writeln('vol. ${Display[y]}\n'.toUpperCase());
+      //different control variable to eliminate confusion
+      //end of for-loop
+    }
+    //end of if-statement
+  } else {
+    print('Check out some of the Titles!');
+  }
+  //end of ViewComicVolumes
+}
