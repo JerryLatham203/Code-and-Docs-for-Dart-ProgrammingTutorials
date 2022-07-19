@@ -1,0 +1,155 @@
+import 'dart:io';
+
+//creating method to use white-space in output of console
+void enter(int space) {
+  int Lines = 0;
+  while (Lines < space) {
+    print('\n');
+    Lines = Lines + 1;
+    //end of while-loop
+  }
+  //end of method enter
+}
+
+//declaring variables outside of main method:
+String Color = '';
+String Brand = '';
+String Desktop = 'Desktop PC';
+String Laptop = 'Laptop PC';
+int HardDrive = 1;
+int operating_systemVersion = 11;
+String Operating_System = 'Windows ${operating_systemVersion} operating system';
+String keyboard = 'Keyboard';
+String monitor = 'Monitor';
+int memory = 0;
+int RAM = 0;
+
+List myPC = [];
+
+void ViewPC() {
+  for (int x = 0; x < myPC.length; x++) {
+    stdout.writeln('-${myPC[x]}');
+    //end of for-loop
+  }
+//end of method ViewPC
+}
+
+void main() {
+  AddColor('Grey');
+  SelectBrand('Dell');
+  choosePlatform(0);
+  UpdateOperatingSystem_Version(10);
+  AddHardDrive();
+  AddKeyboard(5);
+  AddMonitor(27);
+  Collect_RAM(500);
+  Collect_memory(2150);
+  Collect_RAM(300);
+  //once the RAM or memory is set, it cannot be changed
+  //just for this "simulation"
+  AddMonitor(1);
+  setMemory();
+  setRAM();
+  //-------//
+  ViewPC();
+
+  enter(2);
+  print('${myPC.length} part(s) added');
+  //end of main method
+}
+
+void AddColor(String pick_color) {
+  Color = pick_color;
+  myPC.add(Color);
+  //end of method AddColor
+}
+
+void SelectBrand(String title_brand) {
+  Brand = title_brand;
+  myPC.add(Brand);
+  //end of SelectBrand
+}
+
+void choosePlatform(int choiceNum) {
+  if (choiceNum == 0) {
+    myPC.add(Desktop);
+    //end of if-statement
+  } else if (choiceNum == 1) {
+    myPC.add(Laptop);
+    //end of else if
+  }
+  //end of method choosePlatform
+}
+
+void UpdateOperatingSystem_Version(int OPSVersion) {
+  operating_systemVersion = OPSVersion;
+  myPC.add(Operating_System);
+  //end of method UpdateOperatingSystem_Version
+}
+
+void AddHardDrive() {
+  String passHardDrive = '${HardDrive} TB hard drive';
+  myPC.add(passHardDrive);
+  //end of method AddHardDrive
+}
+
+void AddKeyboard(int NumOption) {
+  if (NumOption == 1) {
+    keyboard += ' included';
+    myPC.add(keyboard);
+    //end of if-statement
+  }
+  //end of method AddKeyboard
+}
+
+void AddMonitor(int NumOption) {
+  if (NumOption == 1) {
+    monitor += ' included';
+    myPC.add(monitor);
+    //end of if-statement
+  }
+  //end of method AddMonitor
+}
+
+void Collect_memory(int mem_number) {
+  while (memory < mem_number) {
+    memory += mem_number;
+    //end of while-loop
+  }
+  //end of method Collect_memory
+}
+
+void Collect_RAM(int ram_number) {
+  while (RAM < ram_number) {
+    RAM += ram_number;
+    //end of while-loop
+  }
+  //end of method Collect_RAM
+}
+
+void setMemory() {
+  String pass_Memory = '';
+  if (memory < 1000) {
+    pass_Memory = '${memory} GB memory';
+    //end of if-statement
+  } else if (memory > 1000) {
+    pass_Memory = '1 or more TB of memory';
+    //end of else if-statement
+  }
+  myPC.add(pass_Memory);
+
+  //end of method setMemory
+}
+
+void setRAM() {
+  String pass_ram = '';
+  if (RAM < 1000) {
+    pass_ram = '${RAM} GB RAM';
+    //end of if-statement
+  } else if (RAM > 1000) {
+    pass_ram = '1 or more TB of RAM';
+    //end of else if-statement
+  }
+  myPC.add(pass_ram);
+  //end of method setRAM
+}
