@@ -1,0 +1,141 @@
+import 'dart:io';
+
+class Animalia {
+  List Animals = List<String>.filled(0, "", growable: true);
+  //The above List is declared as public in class Animalia
+  /* Since each extended class is a child class of Animalia, the List variable 'Animals' 
+  will be available in each child class. */
+  //end of class Animalia
+}
+
+class Ungulate extends Animalia {
+  /* although List 'Animals' is not visible in the extended classes, it can be manipulated. */
+  Type() {
+    print("Ungulate - a hoofed animal");
+    //end of method Type
+  }
+
+  ViewUngulate() {
+    stdout.write("Searching from class Ungulate: ");
+    for (int x = 0; x < Animals.length; x++) {
+      stdout.write(Animals[x] + " ");
+      //end of for-loop
+    }
+
+    print("\n");
+    //end of method ViewUngulate
+  }
+  //end of class Ungulate
+}
+
+class Marsupials extends Animalia {
+  Type() {
+    print(
+        "Marsupial - any member of the mammalian infraclass Marsupialia. The young stay for a time in a pouch on the mother's abdomen");
+
+    //end of class Type
+  }
+
+  ViewMarsupials() {
+    stdout.write("Searching from class Marsupials: ");
+    for (int x = 0; x < Animals.length; x++) {
+      stdout.write(Animals[x] + " ");
+      //end of for-loop
+    }
+    print("\n");
+    //end of method ViewMarsupials
+  }
+  //end of class Marsupials
+}
+
+class Glires extends Animalia {
+  Type() {
+    print("""Glires - A clade comprising of both lagomorphs and rodents;
+      small mammals with distinctive teeth that grow throughout their lifetime.""");
+    /* Multiple String enclosed text will be output to the console exactly as formatted */
+    //end of method Type
+  }
+
+  ViewGlires() {
+    stdout.write("Searching from class Glires: ");
+    //The for-loop loops through the List of Animals
+    for (int x = 0; x < Animals.length; x++) {
+      stdout.write(Animals[x] + " ");
+      //end of for-loop
+    }
+    print("\n");
+    //end of method ViewGlires
+  }
+  //end of class Glires
+}
+
+class Caniform extends Animalia {
+  Type() {
+    print(
+        """Caniform - a suborder within the order Carnivora consisting of "dog-like" carnivorans. 
+The caniform family include dogs, bears, seals, etc..""");
+    //using triple quotations in an output instead of double, prints the string statement as exactly as seen
+    //end of method Type
+  }
+
+  ViewCaniform() {
+    stdout.write("Searching from class Caniform: ");
+    for (int i = 0; i < Animals.length; i++) {
+      stdout.write(Animals[i] + " ");
+      //end of for-loop
+    }
+    print("\n");
+    //end of method ViewCaniform
+  }
+  //end of class Caniform
+}
+
+class Feliformia extends Animalia {
+  Type() {
+    print("Feliformia - ");
+    //end of method Type
+  }
+
+  ViewFeliformia() {
+    stdout.write("Searching from class Feliformia: ");
+    for (int x = 0; x < Animals.length; x++) {
+      stdout.write(Animals[x].toUpperCase() + " ");
+      //The list 'Animals' contain string values, so they can be manipulated with string methods
+      //end of for-loop
+    }
+    print("\n");
+    //end of method ViewFeliformia
+  }
+  //end of class Feliformia
+}
+
+void main() {
+  var Cani = Caniform();
+  Cani.Type();
+  Cani.Animals.add("Fox");
+  Cani.Animals.add("Dog");
+  Cani.Animals.add("Honey Badger");
+
+  var Ungu = Ungulate();
+  Ungu.Type();
+
+  var Mars = Marsupials();
+  Mars.Type();
+  Mars.Animals.add("Kangaroo");
+  Mars.Animals.add("Opossum");
+
+  Mars.ViewMarsupials();
+
+  var Feli = Feliformia();
+  Feli.Animals.add("cat");
+  Feli.Animals.add("tiger");
+  Feli.Animals.add("hyena");
+  Feli.ViewFeliformia();
+
+  Ungu.Animals.add("Zebra");
+  //the method add(arg) can only take 1 argument at a time
+  Ungu.Animals.add("Horse");
+  Ungu.ViewUngulate();
+  //we execute our code in the main method
+  //end of main method
+}
