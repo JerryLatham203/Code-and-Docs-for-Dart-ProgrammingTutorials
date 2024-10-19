@@ -1,0 +1,11 @@
+import 'dart:io';
+
+void main() {
+  stdout.write("enter a number: ");
+
+  int usernumber = int.parse(stdin.readLineSync()!);
+
+  usernumber *= 2;
+  print("Your number has been doubled: ${usernumber}");
+  //end of main method
+}
